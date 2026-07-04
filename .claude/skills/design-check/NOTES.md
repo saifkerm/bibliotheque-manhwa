@@ -1,0 +1,3 @@
+# Notes de sync — divergences assumées entre le design et le code
+
+- **`plusOne` / dépassement de `totalCh`** : le design Claude Design remet le statut à `completed` à chaque incrément une fois `currentCh >= totalCh`, même après resynchronisation du total (donc reste "Terminé" en boucle si on continue à incrémenter au-delà). Le code local (`src/hooks/useLibrary.js`) repasse le statut à `reading` dans ce cas, jugé plus cohérent puisque le total vient d'être révisé à la hausse. Décision de l'utilisateur du 2026-07-04 : garder le comportement du code, ne pas aligner sur le design pour ce point précis.
