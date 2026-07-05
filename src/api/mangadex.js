@@ -1,6 +1,9 @@
 import { coverFromHues, hueFromString } from '../utils/manga.js';
 
-const MANGADEX_BASE = 'https://api.mangadex.org';
+// Proxy Cloudflare Worker (cf. cloudflare-worker/) : MangaDex n'autorise pas les
+// requêtes CORS depuis un domaine déployé (seulement localhost et mangadex.org),
+// donc on passe par un proxy qui ajoute les headers CORS nécessaires.
+const MANGADEX_BASE = 'https://mangadex-proxy.skermoun.workers.dev';
 
 function buildSearchUrl(query) {
   const params = new URLSearchParams();
