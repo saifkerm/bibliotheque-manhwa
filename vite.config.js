@@ -10,6 +10,7 @@ export default defineConfig({
       registerType: 'autoUpdate',
       includeAssets: ['icons/apple-touch-icon.png'],
       manifest: {
+        lang: 'fr',
         name: 'Ma bibliothèque de manhwas',
         short_name: 'Manhwas',
         description: 'Suivi personnel de ma bibliothèque de manhwas',
